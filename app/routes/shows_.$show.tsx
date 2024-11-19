@@ -1,5 +1,8 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import Content from "~/components/Content";
+import H1 from "~/components/Headings/H1";
+import Standfirst from "~/components/Headings/Standfirst";
 import { ShowProps } from "~/props/show";
 
 
@@ -25,9 +28,9 @@ export const loader: LoaderFunction = async ({ params }) => {
   
     return (
       <div>
-        <h1>{showData.title}</h1>
-        <h3>{showData.summary}</h3>
-        <p>{showData.description}</p>
+        <H1 text={showData.title}></H1>
+        <Standfirst text={showData.summary}></Standfirst>
+        <Content html={showData.description} />
       </div>
     );
   }

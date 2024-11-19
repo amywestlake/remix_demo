@@ -1,5 +1,6 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import H1 from "~/components/Headings/H1";
 import ShowCard from "~/components/ShowCard";
 import { ShowProps as Show } from "~/props/show";
 
@@ -31,12 +32,12 @@ export default function Shows() {
 
   return (
     <div>
-      <h1>Shows</h1>
-      <ul>
-        {shows.map((show) => (
+      <H1 text={"Shows"}></H1>
+      <div className="grid grid-cols-4 gap-4 mt-6">
+      {shows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

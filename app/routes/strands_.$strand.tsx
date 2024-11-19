@@ -1,5 +1,10 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import Content from "~/components/Content";
+import H1 from "~/components/Headings/H1";
+import Standfirst from "~/components/Headings/Standfirst";
+import ShowCard from "~/components/ShowCard";
+import { ShowProps } from "~/props/show";
 import { StrandProps } from "~/props/strand";
 
 
@@ -25,9 +30,14 @@ export const loader: LoaderFunction = async ({ params }) => {
   
     return (
       <div>
-        <h1>{strandData.title}</h1>
-        <h3>{strandData.summary}</h3>
-        <p>{strandData.description}</p>
+        <H1 text={strandData.title}></H1>
+        <Standfirst text={strandData.summary}></Standfirst>
+        <Content html={strandData.description}></Content>
+        <div className="grid grid-cols-4 gap-4 mt-6">
+        {strandData.shows.map((show: ShowProps) => (
+          <ShowCard key={show.id} show={show} />
+        ))}
+        </div>
       </div>
     );
   }

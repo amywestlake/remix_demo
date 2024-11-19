@@ -1,6 +1,7 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import StrandList from "~/components/strandList";
+import H1 from "~/components/Headings/H1";
+import StrandList from "~/components/StrandList";
 import { StrandProps as Strand } from "~/props/strand";
 
 export let loader: LoaderFunction = async () => {
@@ -31,12 +32,10 @@ export default function Strands() {
 
   return (
     <div>
-      <h1>Strands</h1>
-      <ul>
+        <H1 text="Whats On - Strands"></H1>
         {strands.map((strand) => (
           <StrandList key={strand.id} strand={strand} />
         ))}
-      </ul>
     </div>
   );
 }
