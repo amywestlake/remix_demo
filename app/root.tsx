@@ -25,6 +25,20 @@ export default function App() {
       </head>
       <body>
         <div className="container mx-auto p-8">
+        <nav className="bg-gray-800 p-4 mb-8">
+          <ul className="flex space-x-4">
+            <li>
+              <a href="/strands" className="text-white hover:text-gray-300">
+                Strands
+              </a>
+            </li>
+            <li>
+              <a href="/shows" className="text-white hover:text-gray-300">
+                Shows
+              </a>
+            </li>
+          </ul>
+        </nav>
           <Outlet />
         </div>
         <Scripts />
