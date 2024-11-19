@@ -1,5 +1,6 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { ShowProps } from "~/props/show";
 
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -18,14 +19,6 @@ export const loader: LoaderFunction = async ({ params }) => {
     
     return json(showData); 
   };
-
-
-  interface ShowProps {
-    id: string;
-    title: string;
-    description: string;
-    summary: string;
-  }
   
   export default function ShowPage() {
     const showData = useLoaderData<ShowProps>();

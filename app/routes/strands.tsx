@@ -1,15 +1,15 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import ShowCard from "~/components/ShowCard";
-import { ShowProps as Show } from "~/props/show";
+import StrandList from "~/components/strandList";
+import { StrandProps as Strand } from "~/props/strand";
 
 export let loader: LoaderFunction = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/shows`);
+    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/strands`);
     if (!response.ok) {
       throw new Error(`Error fetching shows: ${response.statusText}`);
     }
-    const shows: Show[] = await response.json();
+    const shows: Strand[] = await response.json();
     return json(shows);
   } catch (error) {
     console.error("Error in loader:", error);
@@ -17,10 +17,10 @@ export let loader: LoaderFunction = async () => {
   }
 };
 
-export default function Shows() {
-  const shows = useLoaderData<Show[] | { error: string }>();
+export default function Strands() {
+  const strands = useLoaderData<Strand[] | { error: string }>();
 
-  if (!Array.isArray(shows)) {
+  if (!Array.isArray(strands)) {
     return (
       <div>
         <h1>Error</h1>
@@ -31,10 +31,10 @@ export default function Shows() {
 
   return (
     <div>
-      <h1>Shows</h1>
+      <h1>Strands</h1>
       <ul>
-        {shows.map((show) => (
-          <ShowCard key={show.id} show={show} />
+        {strands.map((strand) => (
+          <StrandList key={strand.id} strand={strand} />
         ))}
       </ul>
     </div>
