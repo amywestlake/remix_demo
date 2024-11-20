@@ -33,7 +33,7 @@ export default function Shows() {
   return (
     <div>
       <H1 text={"Shows"}></H1>
-      <div className="grid grid-cols-4 gap-4 mt-6">
+      <div className="grid grid-cols-5 gap-4 mt-6">
       {shows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}

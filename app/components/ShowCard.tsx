@@ -1,17 +1,23 @@
 import { ShowProps as Show } from "~/props/show";
 import H2 from "./Headings/H2";
+import H4 from "./Headings/H4Bold";
 
 function ShowCard({ show }: { show: Show }) {
   return (
-    <div key={show.id} className="max-w-sm mx-auto bg-white border border-gray-200 rounded-lg shadow-md">
+    <div key={show.id} className="max-w-sm mx-auto bg-white p-2">
       <img
-        src="https://placehold.co/400x400"
+        src="https://placehold.co/231x129"
         alt="Placeholder"
-        className="rounded-t-lg"
       />
-      <div className="p-4">
+      <div className="pt-4 text-black">
+        <div className="flex items-center justify-between mb-4">
+          <div className="bg-gray-200 px-2 py-1 text-left">Art of Action</div>
+          <div className="bg-gray-300 w-8 h-8 flex rounded-full items-center justify-center text-right">15</div>
+        </div>
         <a href={`/shows/${show.slug}`}>
         <H2 text={show.title}></H2></a>
+        <H4 text="Thu 7 & Sun 17 Nov"></H4>
+        <p>Director Name | 2h 21m</p>
       </div>
     </div>
   );
