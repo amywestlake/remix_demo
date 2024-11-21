@@ -32,7 +32,7 @@ export default function Strands() {
 
   return (
     <div>
-        <H1 text="Whats On - Strands"></H1>
+        <H1 text="What's On - Strands"></H1>
         {strands.map((strand) => (
           <StrandList key={strand.id} strand={strand} />
         ))}
