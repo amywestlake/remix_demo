@@ -3,8 +3,9 @@ import H2 from "./Headings/H2";
 import H4 from "./Headings/H4Bold";
 
 function ShowCard({ show }: { show: Show }) {
+  console.log(show);
   return (
-    <div key={show.id} className="min-w-[281px] mx-auto bg-white p-2">
+    <div key={show.id} className="bg-white p-4">
       <img
         src="https://placehold.co/231x129"
         alt="Placeholder"
@@ -17,8 +18,7 @@ function ShowCard({ show }: { show: Show }) {
           <div className="bg-gray-300 w-8 h-8 flex rounded-full items-center justify-center text-right">15</div>
         </div>
         <a href={`/shows/${show.slug}`}>
-          <H2 text={show.title}></H2>
-        </a>
+        <H2 text={show.title}></H2></a>
         <H4 text="Thu 7 & Sun 17 Nov"></H4>
         <p>Director Name | 2h 21m</p>
       </div>

@@ -33,7 +33,7 @@ export default function Shows() {
   return (
     <div>
       <H1 text="What's On - Shows"></H1>
-      <div className="grid grid-cols-5 gap-4 mt-6">
+      <div className="grid grid-flow-row gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
       {shows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}

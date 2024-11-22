@@ -33,7 +33,7 @@ export const loader: LoaderFunction = async ({ params }) => {
         <H1 text={strandData.title}></H1>
         <Standfirst text={strandData.summary}></Standfirst>
         <Content html={strandData.description}></Content>
-        <div className="grid grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-flow-row gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
         {strandData.shows.map((show: ShowProps) => (
           <ShowCard key={show.id} show={show} />
         ))}
