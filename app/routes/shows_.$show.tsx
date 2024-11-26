@@ -25,7 +25,6 @@ export const loader: LoaderFunction = async ({ params }) => {
   
   export default function ShowPage() {
     const showData = useLoaderData<ShowProps>();
-    console.log(showData);
     return (
       <div>
         <H1 text={showData.title}></H1>

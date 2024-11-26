@@ -3,17 +3,22 @@ import {
   Meta,
   Outlet,
   Scripts,
+  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import stylesheet from "~/tailwind.css?url";
 import H3 from "./components/Headings/H3";
-import H4 from "./components/Headings/H4";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
 
 export default function App() {
+  const location = useLocation();
+
+  // Helper function to determine if the link is active
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <html>
       <head>
@@ -28,7 +33,7 @@ export default function App() {
       </head>
       <body className="bg-[#2F2F2F]">
         <div className="container mx-auto p-8">
-        <nav className="mb-8">
+        <nav className="mb-16">
           <ul className="flex items-center list-none p-0 m-0">
             {/* Left Section: Logo and H3 */}
             <li className="flex items-center space-x-2">
@@ -49,14 +54,14 @@ export default function App() {
 
             {/* Middle Section: Links */}
             <div className="flex">
-              <li className="pl-0 m-0 pr-4 border-r">
-                <a href="/strands" className="text-white hover:text-gray-300">
-                  <H4 text="Strands"></H4>
+              <li className="pl-0 m-0 pr-4 border-r flex items-center" style={{ height: 'fit-content' }}>
+                <a href="/strands/anrea-luka-zimmerman" className={`text-white hover:text-gray-300 ${isActive("/strands/anrea-luka-zimmerman") ? "border-b-4 border-[#08EFE1]" : ""}`}>
+                  <p className="text-lg">Strands</p>
                 </a>
               </li>
-              <li className="pl-4 m-0 ">
-                <a href="/shows" className="text-white hover:text-gray-300">
-                  <H4 text="Shows"></H4>
+              <li className="pl-4 m-0 flex items-center" style={{ height: 'fit-content' }}>
+                <a href="/shows" className={`text-white hover:text-gray-300 ${isActive("/shows") ? "border-b-4 border-[#08EFE1]" : ""}`}>
+                  <p className="text-lg">Shows</p>
                 </a>
               </li>
             </div>

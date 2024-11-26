@@ -3,9 +3,8 @@ import H2 from "./Headings/H2";
 import H4 from "./Headings/H4Bold";
 
 function ShowCard({ show }: { show: Show }) {
-  console.log(show);
   return (
-    <div key={show.id} className="bg-white p-4">
+    <div key={show.id} className="bg-white p-4 flex flex-col h-full">
       <img
         src="https://placehold.co/231x129"
         alt="Placeholder"
